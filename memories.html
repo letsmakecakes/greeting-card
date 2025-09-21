@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things I Love About You - Birthday Love</title>
+    <link rel="stylesheet" href="memories-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Floating Photo Frames Background -->
+        <div class="floating-frames">
+            <div class="frame frame-1">📷</div>
+            <div class="frame frame-2">🖼️</div>
+            <div class="frame frame-3">📸</div>
+            <div class="frame frame-4">🎞️</div>
+            <div class="frame frame-5">📷</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="memories-content">
+            <header class="page-header">
+                <h1 class="page-title">Things I Love About You</h1>
+                <p class="page-subtitle">Every little thing that makes you amazing �</p>
+            </header>
+
+            <!-- Special Photo Showcase -->
+            <div class="special-photo-section">
+                <div class="photo-frame-special">
+                    <img src="image-1758449132820.png" alt="Beautiful You" class="photo-img-special" />
+                    <div class="frame-border-special"></div>
+                    <div class="frame-glow"></div>
+                </div>
+                <div class="photo-caption-special">
+                    <p class="caption-text">That radiant smile that lights up my world</p>
+                    <p class="caption-subtext">Beautiful inside and out 💖</p>
+                </div>
+            </div>
+
+            <div class="love-qualities">
+                <!-- Quality Card 1 -->
+                <div class="quality-card card-1">
+                    <div class="quality-icon">�</div>
+                    <h3 class="quality-title">Your Amazing Smile</h3>
+                    <p class="quality-description">It lights up every room and makes my day instantly better</p>
+                    <div class="quality-hearts">💕</div>
+                </div>
+
+                <!-- Quality Card 2 -->
+                <div class="quality-card card-2">
+                    <div class="quality-icon">💭</div>
+                    <h3 class="quality-title">Your Thoughtfulness</h3>
+                    <p class="quality-description">The way you always think of others and show you care</p>
+                    <div class="quality-hearts">💖</div>
+                </div>
+
+                <!-- Quality Card 3 -->
+                <div class="quality-card card-3">
+                    <div class="quality-icon">✨</div>
+                    <h3 class="quality-title">Your Inner Beauty</h3>
+                    <p class="quality-description">Your kindness and grace shine from within</p>
+                    <div class="quality-hearts">💗</div>
+                </div>
+
+                <!-- Quality Card 4 -->
+                <div class="quality-card card-4">
+                    <div class="quality-icon">�</div>
+                    <h3 class="quality-title">Your Laughter</h3>
+                    <p class="quality-description">The most beautiful sound that fills my heart with joy</p>
+                    <div class="quality-hearts">💝</div>
+                </div>
+
+                <!-- Quality Card 5 -->
+                <div class="quality-card card-5">
+                    <div class="quality-icon">🌟</div>
+                    <h3 class="quality-title">Your Strength</h3>
+                    <p class="quality-description">How you handle everything with such grace and courage</p>
+                    <div class="quality-hearts">💓</div>
+                </div>
+
+                <!-- Quality Card 6 -->
+                <div class="quality-card card-6">
+                    <div class="quality-icon">�</div>
+                    <h3 class="quality-title">Your Love</h3>
+                    <p class="quality-description">The way you love makes me want to be the best version of myself</p>
+                    <div class="quality-hearts">💖</div>
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <p class="continue-text">Your beautiful smile deserves its own celebration...</p>
+                <button class="continue-btn" id="continueBtn">
+                    <span class="btn-text">Continue the Journey</span>
+                    <div class="btn-arrow">→</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Polaroid Effect -->
+        <div class="polaroid-stack">
+            <div class="polaroid polaroid-1">
+                <div class="polaroid-photo">💕</div>
+                <div class="polaroid-caption">Us</div>
+            </div>
+            <div class="polaroid polaroid-2">
+                <div class="polaroid-photo">🌟</div>
+                <div class="polaroid-caption">Forever</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const continueBtn = document.getElementById('continueBtn');
+            const qualityCards = document.querySelectorAll('.quality-card');
+
+            // Quality card hover effects
+            qualityCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    this.classList.add('glow');
+                    setTimeout(() => {
+                        this.classList.remove('glow');
+                    }, 1000);
+                });
+            });
+
+            // Continue button click
+            continueBtn.addEventListener('click', function () {
+                this.classList.add('clicked');
+
+                // Create heart burst
+                createHeartBurst();
+
+                setTimeout(() => {
+                    window.location.href = 'smile.html';
+                }, 1500);
+            });
+
+            function createHeartBurst() {
+                const hearts = ['💕', '💖', '💗', '💝', '💓'];
+
+                for (let i = 0; i < 15; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'burst-heart';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = '50%';
+                    heart.style.top = '80%';
+                    heart.style.setProperty('--random-x', (Math.random() - 0.5) * 300 + 'px');
+                    heart.style.setProperty('--random-y', (Math.random() - 0.5) * 300 + 'px');
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 2000);
+                }
+            }
+
+            // Touch sparkle effect
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.continue-btn') || e.target.closest('.quality-card')) return;
+
+                const sparkle = document.createElement('div');
+                sparkle.className = 'touch-sparkle';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 800);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love! 🎉</title>
+    <link rel="stylesheet" href="finale-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Confetti Background -->
+        <div class="confetti-container">
+            <div class="confetti confetti-1"></div>
+            <div class="confetti confetti-2"></div>
+            <div class="confetti confetti-3"></div>
+            <div class="confetti confetti-4"></div>
+            <div class="confetti confetti-5"></div>
+            <div class="confetti confetti-6"></div>
+            <div class="confetti confetti-7"></div>
+            <div class="confetti confetti-8"></div>
+            <div class="confetti confetti-9"></div>
+            <div class="confetti confetti-10"></div>
+        </div>
+
+        <!-- Floating Balloons -->
+        <div class="balloons">
+            <div class="balloon balloon-1">🎈</div>
+            <div class="balloon balloon-2">🎈</div>
+            <div class="balloon balloon-3">🎈</div>
+            <div class="balloon balloon-4">🎈</div>
+            <div class="balloon balloon-5">🎈</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="finale-content">
+            <div class="celebration-header">
+                <div class="birthday-cake">🎂</div>
+                <h1 class="finale-title">Happy Birthday!</h1>
+                <div class="celebration-emojis">🎉✨🎊✨🎉</div>
+            </div>
+
+            <div class="wishes-container">
+                <div class="wish-card wish-1">
+                    <div class="wish-icon">🌟</div>
+                    <h3 class="wish-title">May all your dreams come true</h3>
+                    <p class="wish-text">This year and always</p>
+                </div>
+
+                <div class="wish-card wish-2">
+                    <div class="wish-icon">💖</div>
+                    <h3 class="wish-title">May love surround you</h3>
+                    <p class="wish-text">Today and every day</p>
+                </div>
+
+                <div class="wish-card wish-3">
+                    <div class="wish-icon">🌈</div>
+                    <h3 class="wish-title">May happiness fill your heart</h3>
+                    <p class="wish-text">In every moment</p>
+                </div>
+
+                <div class="wish-card wish-4">
+                    <div class="wish-icon">✨</div>
+                    <h3 class="wish-title">May magic happen</h3>
+                    <p class="wish-text">In all that you do</p>
+                </div>
+            </div>
+
+            <div class="final-message">
+                <div class="message-heart">💕</div>
+                <h2 class="final-title">You Are My Everything</h2>
+                <div class="final-text">
+                    <p class="final-line">On your special day and every day,</p>
+                    <p class="final-line">I want you to know how much you mean to me.</p>
+                    <p class="final-line">You bring joy, laughter, and love into my life</p>
+                    <p class="final-line">in ways I never thought possible.</p>
+                </div>
+                <div class="love-signature">
+                    <p class="signature-text">With all my love,</p>
+                    <p class="signature-name">Your devoted partner 💖</p>
+                </div>
+            </div>
+
+            <div class="celebration-actions">
+                <button class="party-btn" id="partyBtn">
+                    <span class="btn-text">🎉 Let's Party! 🎉</span>
+                </button>
+
+                <div class="restart-section">
+                    <p class="restart-text">Want to experience this again?</p>
+                    <button class="restart-btn" id="restartBtn">
+                        <span class="btn-text">Start Over</span>
+                        <div class="btn-heart">💕</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Birthday Song -->
+        <div class="song-container" id="songContainer">
+            <div class="song-note note-1">🎵</div>
+            <div class="song-note note-2">🎶</div>
+            <div class="song-note note-3">🎵</div>
+            <div class="song-note note-4">🎶</div>
+            <div class="song-lyrics">
+                <p class="lyric-line line-1">🎵 Happy birthday to you 🎵</p>
+                <p class="lyric-line line-2">🎶 Happy birthday to you 🎶</p>
+                <p class="lyric-line line-3">🎵 Happy birthday dear beautiful 🎵</p>
+                <p class="lyric-line line-4">🎶 Happy birthday to you! 🎶</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const partyBtn = document.getElementById('partyBtn');
+            const restartBtn = document.getElementById('restartBtn');
+            const songContainer = document.getElementById('songContainer');
+
+            // Party button click
+            partyBtn.addEventListener('click', function () {
+                this.classList.add('clicked');
+
+                // Show birthday song
+                songContainer.classList.add('show');
+
+                // Create massive celebration
+                createMegaCelebration();
+
+                // Auto-hide song after animation
+                setTimeout(() => {
+                    songContainer.classList.remove('show');
+                    partyBtn.classList.remove('clicked');
+                }, 8000);
+            });
+
+            // Restart button click
+            restartBtn.addEventListener('click', function () {
+                this.classList.add('clicked');
+
+                createHeartWave();
+
+                setTimeout(() => {
+                    window.location.href = 'welcome.html';
+                }, 1500);
+            });
+
+            function createMegaCelebration() {
+                const celebrationEmojis = ['🎉', '🎊', '🎈', '🎂', '🌟', '✨', '💖', '🎁', '🌈', '🦄'];
+
+                // Create celebration bursts
+                for (let burst = 0; burst < 5; burst++) {
+                    setTimeout(() => {
+                        for (let i = 0; i < 15; i++) {
+                            const emoji = document.createElement('div');
+                            emoji.className = 'mega-celebration';
+                            emoji.textContent = celebrationEmojis[Math.floor(Math.random() * celebrationEmojis.length)];
+                            emoji.style.left = (10 + Math.random() * 80) + '%';
+                            emoji.style.top = (10 + Math.random() * 80) + '%';
+                            emoji.style.setProperty('--random-x', (Math.random() - 0.5) * 300 + 'px');
+                            emoji.style.setProperty('--random-y', (Math.random() - 0.5) * 300 + 'px');
+                            document.body.appendChild(emoji);
+
+                            setTimeout(() => {
+                                emoji.remove();
+                            }, 3000);
+                        }
+                    }, burst * 1000);
+                }
+            }
+
+            function createHeartWave() {
+                const hearts = ['💕', '💖', '💗', '💝', '💓', '💞', '💘', '💌'];
+
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'heart-wave';
+                        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                        heart.style.left = (i * 5) + '%';
+                        heart.style.bottom = '0%';
+                        document.body.appendChild(heart);
+
+                        setTimeout(() => {
+                            heart.remove();
+                        }, 2000);
+                    }, i * 100);
+                }
+            }
+
+            // Touch sparkle effect
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.party-btn') || e.target.closest('.restart-btn')) return;
+
+                const sparkle = document.createElement('div');
+                sparkle.className = 'touch-sparkle';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 800);
+            });
+
+            // Auto-start gentle celebrations
+            setInterval(() => {
+                if (!songContainer.classList.contains('show')) {
+                    createGentleCelebration();
+                }
+            }, 3000);
+
+            function createGentleCelebration() {
+                const gentleEmojis = ['✨', '🌟', '💫', '⭐'];
+
+                for (let i = 0; i < 3; i++) {
+                    const emoji = document.createElement('div');
+                    emoji.className = 'gentle-celebration';
+                    emoji.textContent = gentleEmojis[Math.floor(Math.random() * gentleEmojis.length)];
+                    emoji.style.left = Math.random() * 100 + '%';
+                    emoji.style.top = Math.random() * 100 + '%';
+                    document.body.appendChild(emoji);
+
+                    setTimeout(() => {
+                        emoji.remove();
+                    }, 2000);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

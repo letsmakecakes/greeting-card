@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Day for Someone Special 💖</title>
+    <link rel="stylesheet" href="welcome-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Twinkling Stars Background -->
+        <div class="stars">
+            <div class="star star-1"></div>
+            <div class="star star-2"></div>
+            <div class="star star-3"></div>
+            <div class="star star-4"></div>
+            <div class="star star-5"></div>
+            <div class="star star-6"></div>
+            <div class="star star-7"></div>
+            <div class="star star-8"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="welcome-content">
+            <div class="greeting-section">
+                <h1 class="greeting-title">Hello Beautiful</h1>
+                <div class="sparkle-heart">✨💖✨</div>
+                <p class="greeting-message">Someone very special wants to wish you...</p>
+                <div class="surprise-text">
+                    <span class="surprise-word word-1">A</span>
+                    <span class="surprise-word word-2">Very</span>
+                    <span class="surprise-word word-3">Happy</span>
+                    <span class="surprise-word word-4">Birthday!</span>
+                </div>
+            </div>
+
+            <div class="enter-section">
+                <div class="gift-box" id="giftBox">
+                    <div class="gift-top"></div>
+                    <div class="gift-bottom"></div>
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                    <div class="gift-bow">
+                        <div class="bow-left"></div>
+                        <div class="bow-right"></div>
+                        <div class="bow-center"></div>
+                    </div>
+                </div>
+
+                <button class="enter-btn" id="enterBtn">
+                    <span class="btn-text">Open Your Surprise</span>
+                    <div class="btn-hearts">
+                        <div class="heart-1">💕</div>
+                        <div class="heart-2">💖</div>
+                        <div class="heart-3">💗</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Hearts -->
+        <div class="floating-hearts">
+            <div class="floating-heart heart-float-1">💕</div>
+            <div class="floating-heart heart-float-2">💖</div>
+            <div class="floating-heart heart-float-3">💗</div>
+            <div class="floating-heart heart-float-4">💝</div>
+            <div class="floating-heart heart-float-5">💓</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const giftBox = document.getElementById('giftBox');
+            const enterBtn = document.getElementById('enterBtn');
+
+            // Gift box hover effect
+            giftBox.addEventListener('click', function () {
+                this.classList.add('shake');
+                setTimeout(() => {
+                    this.classList.remove('shake');
+                }, 600);
+            });
+
+            // Enter button click
+            enterBtn.addEventListener('click', function () {
+                this.classList.add('clicked');
+
+                // Create explosion effect
+                createExplosion();
+
+                setTimeout(() => {
+                    window.location.href = 'memories.html';
+                }, 1500);
+            });
+
+            function createExplosion() {
+                for (let i = 0; i < 20; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'explosion-particle';
+                    particle.style.left = '50%';
+                    particle.style.top = '50%';
+                    particle.style.setProperty('--random-x', (Math.random() - 0.5) * 400 + 'px');
+                    particle.style.setProperty('--random-y', (Math.random() - 0.5) * 400 + 'px');
+                    document.body.appendChild(particle);
+
+                    setTimeout(() => {
+                        particle.remove();
+                    }, 1000);
+                }
+            }
+
+            // Touch sparkle effect
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.enter-btn') || e.target.closest('.gift-box')) return;
+
+                const sparkle = document.createElement('div');
+                sparkle.className = 'touch-sparkle';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 800);
+            });
+        });
+    </script>
+</body>
+
+</html>

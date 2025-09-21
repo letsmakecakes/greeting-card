@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Beautiful! 🌸</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Background Petals -->
+        <div class="petal petal-1"></div>
+        <div class="petal petal-2"></div>
+        <div class="petal petal-3"></div>
+        <div class="petal petal-4"></div>
+        <div class="petal petal-5"></div>
+        <div class="petal petal-6"></div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="flower-garden">
+                <div class="flower flower-1">
+                    <div class="stem"></div>
+                    <div class="petals">
+                        <div class="petal-center"></div>
+                        <div class="petal-layer-1">
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                        </div>
+                        <div class="petal-layer-2">
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flower flower-2">
+                    <div class="stem"></div>
+                    <div class="petals">
+                        <div class="petal-center"></div>
+                        <div class="petal-layer-1">
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                        </div>
+                        <div class="petal-layer-2">
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flower flower-3">
+                    <div class="stem"></div>
+                    <div class="petals">
+                        <div class="petal-center"></div>
+                        <div class="petal-layer-1">
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                        </div>
+                        <div class="petal-layer-2">
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                            <div class="petal-piece"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="message-container">
+                <h1 class="main-title">Happy Birthday!</h1>
+                <div class="heart">💖</div>
+                <div class="birthday-message">
+                    <p class="message-line line-1">To the most amazing person</p>
+                    <p class="message-line line-2">who lights up my world</p>
+                    <p class="message-line line-3">every single day</p>
+                    <p class="message-line line-4">You deserve all the happiness</p>
+                    <p class="message-line line-5">and love in the universe</p>
+                    <p class="special-message">I love you more than words can say! 🌹</p>
+                </div>
+                
+                <div class="continue-section">
+                    <button class="continue-btn" id="continueBtn">
+                        <span class="btn-text">One More Surprise!</span>
+                        <div class="btn-sparkles">✨🎉✨</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const continueBtn = document.getElementById('continueBtn');
+            
+            // Continue button click
+            if (continueBtn) {
+                continueBtn.addEventListener('click', function() {
+                    this.classList.add('clicked');
+                    
+                    // Create celebration effect
+                    createCelebration();
+                    
+                    setTimeout(() => {
+                        window.location.href = 'finale.html';
+                    }, 2000);
+                });
+            }
+            
+            function createCelebration() {
+                const emojis = ['🎉', '🎂', '🎈', '🌟', '💖', '🎊', '✨', '🌸'];
+                
+                for (let i = 0; i < 25; i++) {
+                    const celebration = document.createElement('div');
+                    celebration.className = 'celebration-emoji';
+                    celebration.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    celebration.style.left = '50%';
+                    celebration.style.top = '80%';
+                    celebration.style.setProperty('--random-x', (Math.random() - 0.5) * 400 + 'px');
+                    celebration.style.setProperty('--random-y', (Math.random() - 0.5) * 400 + 'px');
+                    celebration.style.setProperty('--random-delay', Math.random() * 0.5 + 's');
+                    document.body.appendChild(celebration);
+                    
+                    setTimeout(() => {
+                        celebration.remove();
+                    }, 3000);
+                }
+            }
+            
+            // Add sparkle effect on tap/click
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.continue-btn')) return;
+                
+                createSparkle(e.clientX, e.clientY);
+            });
+            
+            function createSparkle(x, y) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = x + 'px';
+                sparkle.style.top = y + 'px';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

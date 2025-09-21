@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I Love You 💕</title>
+    <link rel="stylesheet" href="reasons-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Floating Hearts Background -->
+        <div class="floating-hearts-bg">
+            <div class="bg-heart heart-1">💕</div>
+            <div class="bg-heart heart-2">💖</div>
+            <div class="bg-heart heart-3">💗</div>
+            <div class="bg-heart heart-4">💝</div>
+            <div class="bg-heart heart-5">💓</div>
+            <div class="bg-heart heart-6">💞</div>
+            <div class="bg-heart heart-7">💘</div>
+            <div class="bg-heart heart-8">💌</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="reasons-content">
+            <header class="page-header">
+                <h1 class="page-title">Why I Love You</h1>
+                <p class="page-subtitle">Let me count the ways... 💕</p>
+            </header>
+
+            <div class="heart-bubbles-container">
+                <!-- Heart Bubble 1 -->
+                <div class="heart-bubble bubble-1">
+                    <div class="bubble-heart">💕</div>
+                    <div class="bubble-content">
+                        <h3 class="reason-title">Your Radiant Smile</h3>
+                        <p class="reason-text">That gorgeous, warm smile that lights up every room and melts my heart
+                            instantly</p>
+                    </div>
+                </div>
+
+                <!-- Heart Bubble 2 -->
+                <div class="heart-bubble bubble-2">
+                    <div class="bubble-heart">💖</div>
+                    <div class="bubble-content">
+                        <h3 class="reason-title">Your Beautiful Eyes</h3>
+                        <p class="reason-text">So expressive and kind, I see our entire future when I look into them</p>
+                    </div>
+                </div>
+
+                <!-- Heart Bubble 3 -->
+                <div class="heart-bubble bubble-3">
+                    <div class="bubble-heart">💗</div>
+                    <div class="bubble-content">
+                        <h3 class="reason-title">Your Inner Glow</h3>
+                        <p class="reason-text">You radiate such warmth and beauty from within - it's absolutely
+                            captivating</p>
+                    </div>
+                </div>
+
+                <!-- Heart Bubble 4 -->
+                <div class="heart-bubble bubble-4">
+                    <div class="bubble-heart">💝</div>
+                    <div class="bubble-content">
+                        <h3 class="reason-title">Your Gentle Spirit</h3>
+                        <p class="reason-text">The way you approach life with such grace and kindness inspires me daily
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Heart Bubble 5 -->
+                <div class="heart-bubble bubble-5">
+                    <div class="bubble-heart">💓</div>
+                    <div class="bubble-content">
+                        <h3 class="reason-title">Your Stunning Beauty</h3>
+                        <p class="reason-text">Inside and out, you're absolutely breathtaking in every single way</p>
+                    </div>
+                </div>
+
+                <!-- Heart Bubble 6 -->
+                <div class="heart-bubble bubble-6">
+                    <div class="bubble-heart">💞</div>
+                    <div class="bubble-content">
+                        <h3 class="reason-title">Your Joyful Laugh</h3>
+                        <p class="reason-text">It's the most beautiful sound in the world and makes everything better
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Heart Bubble 7 -->
+                <div class="heart-bubble bubble-7">
+                    <div class="bubble-heart">💘</div>
+                    <div class="bubble-content">
+                        <h3 class="reason-title">Your Perfect Style</h3>
+                        <p class="reason-text">You look absolutely stunning in everything, especially that beautiful
+                            maroon outfit</p>
+                    </div>
+                </div>
+
+                <!-- Heart Bubble 8 -->
+                <div class="heart-bubble bubble-8">
+                    <div class="bubble-heart">💌</div>
+                    <div class="bubble-content">
+                        <h3 class="reason-title">Simply Perfect You</h3>
+                        <p class="reason-text">Every detail about you is perfect - you're my dream come true</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="love-declaration">
+                <div class="declaration-heart">💖</div>
+                <p class="declaration-text">There are a million more reasons, but most importantly...</p>
+                <h2 class="final-declaration">You make me the happiest person alive!</h2>
+                <div class="declaration-hearts">💕💖💗💝💓💞💘💌💕</div>
+            </div>
+
+            <div class="continue-section">
+                <button class="continue-btn" id="continueBtn">
+                    <span class="btn-text">Let's Celebrate You!</span>
+                    <div class="btn-hearts">🎉💖🎉</div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const continueBtn = document.getElementById('continueBtn');
+            const heartBubbles = document.querySelectorAll('.heart-bubble');
+
+            // Heart bubble click effects
+            heartBubbles.forEach(bubble => {
+                bubble.addEventListener('click', function () {
+                    this.classList.add('pulse');
+
+                    // Create floating hearts from bubble
+                    createBubbleHearts(this);
+
+                    setTimeout(() => {
+                        this.classList.remove('pulse');
+                    }, 1000);
+                });
+            });
+
+            // Continue button click
+            continueBtn.addEventListener('click', function () {
+                this.classList.add('clicked');
+
+                // Create massive heart explosion
+                createHeartExplosion();
+
+                setTimeout(() => {
+                    window.location.href = 'birthday.html';
+                }, 2000);
+            });
+
+            function createBubbleHearts(bubble) {
+                const rect = bubble.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                const hearts = ['💕', '💖', '💗', '💝', '💓'];
+
+                for (let i = 0; i < 5; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'bubble-float-heart';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = centerX + 'px';
+                    heart.style.top = centerY + 'px';
+                    heart.style.setProperty('--random-x', (Math.random() - 0.5) * 200 + 'px');
+                    heart.style.setProperty('--random-y', (Math.random() - 0.5) * 200 + 'px');
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 1500);
+                }
+            }
+
+            function createHeartExplosion() {
+                const hearts = ['💕', '💖', '💗', '💝', '💓', '💞', '💘', '💌'];
+
+                for (let i = 0; i < 30; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'explosion-heart';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = '50%';
+                    heart.style.top = '80%';
+                    heart.style.setProperty('--random-x', (Math.random() - 0.5) * 400 + 'px');
+                    heart.style.setProperty('--random-y', (Math.random() - 0.5) * 400 + 'px');
+                    heart.style.setProperty('--random-delay', Math.random() * 0.5 + 's');
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 3000);
+                }
+            }
+
+            // Touch sparkle effect
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.continue-btn') || e.target.closest('.heart-bubble')) return;
+
+                const sparkle = document.createElement('div');
+                sparkle.className = 'touch-sparkle';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 800);
+            });
+        });
+    </script>
+</body>
+
+</html>

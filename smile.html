@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Beautiful Smile ✨</title>
+    <link rel="stylesheet" href="smile-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Floating Smiles Background -->
+        <div class="floating-smiles-bg">
+            <div class="smile-emoji smile-1">😊</div>
+            <div class="smile-emoji smile-2">😄</div>
+            <div class="smile-emoji smile-3">🥰</div>
+            <div class="smile-emoji smile-4">😍</div>
+            <div class="smile-emoji smile-5">🌟</div>
+            <div class="smile-emoji smile-6">✨</div>
+            <div class="smile-emoji smile-7">💫</div>
+            <div class="smile-emoji smile-8">🌈</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="smile-content">
+            <header class="page-header">
+                <div class="header-sparkles">✨🌟✨</div>
+                <h1 class="page-title">Your Beautiful Smile</h1>
+                <p class="page-subtitle">The light of my life 💕</p>
+            </header>
+
+            <div class="smile-showcase">
+                <div class="smile-frame">
+                    <div class="smile-glow-outer"></div>
+                    <div class="smile-glow-inner"></div>
+                    <div class="smile-photo-placeholder">
+                        <img src="image-1758449132820.png" alt="Your Beautiful Smile" class="smile-photo-img" />
+                    </div>
+                </div>
+
+                <div class="smile-description">
+                    <h2 class="description-title">What Your Smile Does to Me</h2>
+                    <div class="description-items">
+                        <div class="description-item item-1">
+                            <div class="item-icon">🌅</div>
+                            <p class="item-text">Brightens my darkest days</p>
+                        </div>
+                        <div class="description-item item-2">
+                            <div class="item-icon">💫</div>
+                            <p class="item-text">Makes my heart skip a beat</p>
+                        </div>
+                        <div class="description-item item-3">
+                            <div class="item-icon">🦋</div>
+                            <p class="item-text">Gives me butterflies every time</p>
+                        </div>
+                        <div class="description-item item-4">
+                            <div class="item-icon">🌈</div>
+                            <p class="item-text">Fills my world with color</p>
+                        </div>
+                        <div class="description-item item-5">
+                            <div class="item-icon">✨</div>
+                            <p class="item-text">Makes everything magical</p>
+                        </div>
+                        <div class="description-item item-6">
+                            <div class="item-icon">💕</div>
+                            <p class="item-text">Reminds me why I love you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="smile-message">
+                <div class="message-heart">💖</div>
+                <h3 class="message-title">Every time you smile...</h3>
+                <p class="message-text">My whole world becomes brighter. That gorgeous, warm smile of yours is
+                    absolutely captivating. It shows your beautiful soul and fills my heart with so much joy and love.
+                </p>
+                <div class="message-closing">
+                    <p class="closing-text">Keep smiling, beautiful!</p>
+                    <div class="closing-emojis">😊💕😊💕😊</div>
+                </div>
+            </div>
+
+            <div class="continue-section">
+                <button class="continue-btn" id="continueBtn">
+                    <span class="btn-text">Continue Our Journey</span>
+                    <div class="btn-smile">😊</div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const continueBtn = document.getElementById('continueBtn');
+            const descriptionItems = document.querySelectorAll('.description-item');
+
+            // Description item click effects
+            descriptionItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    this.classList.add('pulse');
+
+                    // Create smile burst
+                    createSmileBurst(this);
+
+                    setTimeout(() => {
+                        this.classList.remove('pulse');
+                    }, 1000);
+                });
+            });
+
+            // Continue button click
+            continueBtn.addEventListener('click', function () {
+                this.classList.add('clicked');
+
+                // Create smile wave
+                createSmileWave();
+
+                setTimeout(() => {
+                    window.location.href = 'reasons.html';
+                }, 1500);
+            });
+
+            function createSmileBurst(element) {
+                const rect = element.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                const smiles = ['😊', '😄', '🥰', '😍', '✨', '🌟'];
+
+                for (let i = 0; i < 6; i++) {
+                    const smile = document.createElement('div');
+                    smile.className = 'burst-smile';
+                    smile.textContent = smiles[Math.floor(Math.random() * smiles.length)];
+                    smile.style.left = centerX + 'px';
+                    smile.style.top = centerY + 'px';
+                    smile.style.setProperty('--random-x', (Math.random() - 0.5) * 150 + 'px');
+                    smile.style.setProperty('--random-y', (Math.random() - 0.5) * 150 + 'px');
+                    document.body.appendChild(smile);
+
+                    setTimeout(() => {
+                        smile.remove();
+                    }, 1200);
+                }
+            }
+
+            function createSmileWave() {
+                const smiles = ['😊', '😄', '🥰', '😍', '🌟', '✨'];
+
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        const smile = document.createElement('div');
+                        smile.className = 'smile-wave';
+                        smile.textContent = smiles[Math.floor(Math.random() * smiles.length)];
+                        smile.style.left = (i * 7) + '%';
+                        smile.style.bottom = '0%';
+                        document.body.appendChild(smile);
+
+                        setTimeout(() => {
+                            smile.remove();
+                        }, 2000);
+                    }, i * 80);
+                }
+            }
+
+            // Touch sparkle effect
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.continue-btn') || e.target.closest('.description-item')) return;
+
+                const sparkle = document.createElement('div');
+                sparkle.className = 'touch-sparkle';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 800);
+            });
+        });
+    </script>
+</body>
+
+</html>
